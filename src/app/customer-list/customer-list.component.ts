@@ -8,11 +8,11 @@ import { CustomerService } from '../shared/customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  constructor(private customer: CustomerService) { }
+  constructor(public Customer: CustomerService) { }
 
   customerArray = [];
   ngOnInit() {
-    this.customer.getCustomers().subscribe((list) => {
+    this.Customer.getCustomers().subscribe((list) => {
       this.customerArray = list.map((item) => {
         return {
           $key: item.key,

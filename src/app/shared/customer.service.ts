@@ -32,4 +32,25 @@ export class CustomerService {
       location: customer.location
     });
   }
+
+  populateForm(customer) {
+    this.form.setValue(customer);
+  }
+
+  updateCustomer(customer) {
+    this.customerList.update(customer.$key, {
+      fullName: customer.fullName,
+      email: customer.email,
+      mobile: customer.mobile,
+      location: customer.location
+    });
+    alert('Customer\'s data updated successfully');
+  }
+
+  deleteCustomer(key) {
+    if (confirm('Delete process is permanent ! do you want to continue ?')) {
+      this.customerList.remove(key);
+      alert('Customer removed successfully');
+    }
+  }
 }

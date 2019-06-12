@@ -19,7 +19,7 @@ export class CustomerComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if (this.customer.form.valid){
+    if (this.customer.form.valid) {
       if (this.customer.form.get('$key').value === null) {
         this.customer.insertCustomer(this.customer.form.value);
         this.showSuccessMessage = true;
@@ -29,7 +29,7 @@ export class CustomerComponent implements OnInit {
         this.submitted = false;
         this.customer.form.reset();
       } else {
-        console.log('Update');
+        this.customer.updateCustomer(this.customer.form.value);
       }
     }
   }

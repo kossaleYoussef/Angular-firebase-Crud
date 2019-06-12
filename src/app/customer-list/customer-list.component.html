@@ -11,8 +11,8 @@
       <td>{{ customer.email }}</td>
       <td>{{ customer.mobile }}</td>
       <td>
-        <button class="btn btn-success mr-2 mb-2">Edit</button>
-        <button class="btn btn-danger mr-2 mb-2">Delete</button>
+        <button class="btn btn-success mr-2 mb-2" (click)="Customer.populateForm(customer)">Edit</button>
+        <button class="btn btn-danger mr-2 mb-2" (click)="Customer.deleteCustomer(customer.$key)">Delete</button>
       </td>
     </tr>
   </ng-container>
