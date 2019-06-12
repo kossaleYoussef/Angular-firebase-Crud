@@ -1,15 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-
+.row{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .left-side{
-  background-color: rgba(255, 0, 0, 0.404);
+  padding-left: 50px;
 
 }
 
 .right-side{
-  background-color: rgba(0, 128, 0, 0.356);
-
+  padding: 20px;
+  flex:1;
 }
 
 .btn{
@@ -20,4 +25,18 @@
   transform: scale(1.05);
 }
 
+tr:nth-of-type(even){
+  background-color: rgba(128, 128, 128, 0.103);
+}
 
+h3{
+  background-color: rgba(212, 87, 87, 0.897);
+  padding: 70px;
+  text-align: center;
+  color: white;
+}
+.container{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}

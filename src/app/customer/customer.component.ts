@@ -30,6 +30,8 @@ export class CustomerComponent implements OnInit {
         this.customer.form.reset();
       } else {
         this.customer.updateCustomer(this.customer.form.value);
+        this.customer.form.reset();
+        this.submitted = false;
       }
     }
   }
