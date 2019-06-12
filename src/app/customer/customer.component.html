@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-5 left-side">
+    <form [formGroup]="this.customer.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" formControlName="fullName" [class.is-invalid]="!!formControls.fullName.errors && submitted">
+        <small class="invalid-feedback" *ngIf="!!formControls.fullName.errors && submitted">Field required</small>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email" [class.is-invalid]="!!formControls.email.errors && submitted">
+        <small class="invalid-feedback" *ngIf="!!formControls.email.errors && submitted">Invalid email</small>
+      </div>
+
+      <div class="form-group">
+        <label>Mobile</label>
+        <input type="text" class="form-control" formControlName="mobile" [class.is-invalid]="!!formControls.mobile.errors && submitted">
+        <div class="invalid-feedback" *ngIf="!!formControls.mobile.errors && submitted">
+          <label *ngIf="!!formControls?.mobile.errors.required">Field required</label>
+          <label *ngIf="!!formControls?.mobile.errors.minlength">Must be at least 8 characters</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" formControlName="location" [class.is-invalid]="!!formControls.location.errors && submitted">
+        <small class="invalid-feedback" *ngIf="!!formControls.location.errors && submitted">Field Required</small>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-7 right-side">
+    <app-customer-list></app-customer-list>
+  </div>
+</div>
