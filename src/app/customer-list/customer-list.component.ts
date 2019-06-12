@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../shared/customer.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private customer: CustomerService) { }
 
+  customerArray = [];
   ngOnInit() {
+    this.customer.getCustomers().subscribe((list) => {
+      this.customerArray = list.map((item) => {
+        return {
+          $key: item.key,
+          ...item.payload.val()
+        };
+      });
+    });
   }
 
 }

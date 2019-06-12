@@ -1,3 +1,19 @@
-<p>
-  customer-list works!
-</p>
+<table class="table">
+  <thead>
+    <th>FullName</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th></th>
+  </thead>
+  <ng-container *ngFor="let customer of customerArray">
+    <tr>
+      <td>{{ customer.fullName }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.mobile }}</td>
+      <td>
+        <button class="btn btn-success mr-2 mb-2">Edit</button>
+        <button class="btn btn-danger mr-2 mb-2">Delete</button>
+      </td>
+    </tr>
+  </ng-container>
+</table>

@@ -12,19 +12,26 @@ export class CustomerComponent implements OnInit {
 
   submitted: boolean;
   formControls = this.customer.form.controls;
+  showSuccessMessage: boolean;
 
   ngOnInit() {
   }
 
   onSubmit() {
-
     this.submitted = true;
-    /*if (this.customer.form.get('$key').value === null) {
-      // insert
-      this.submitted = false;
-    } else {
-      // update
-    }*/
+    if (this.customer.form.valid){
+      if (this.customer.form.get('$key').value === null) {
+        this.customer.insertCustomer(this.customer.form.value);
+        this.showSuccessMessage = true;
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 4000);
+        this.submitted = false;
+        this.customer.form.reset();
+      } else {
+        console.log('Update');
+      }
+    }
   }
 
 }
